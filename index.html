@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KM - Perfumes Premium</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Google Fonts: Playfair Display (serif elegante) y Inter (sans-serif moderna) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-text">KM</span>
+                </div>
+                <nav class="navbar">
+                    <ul class="nav-list">
+                        <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                        <li><a href="#menor" class="nav-link">Por Menor</a></li>
+                        <li><a href="#mayor" class="nav-link">Por Mayor</a></li>
+                        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" aria-label="Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Perfumes Premium</h1>
+                <p class="hero-subtitle">Elegancia y sofisticación en cada fragancia</p>
+                <div class="hero-cta">
+                    <a href="#menor" class="btn btn-primary">Explorar Colección</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-decoration"></div>
+    </section>
+
+    <!-- Perfumes por Menor -->
+    <section id="menor" class="perfumes-section perfumes-menor">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title-wrapper">
+                    <h2 class="section-title">Perfumes por Menor</h2>
+                    <button class="collapse-toggle" id="toggleMenor" aria-label="Colapsar sección">
+                        <span class="collapse-icon">−</span>
+                    </button>
+                </div>
+            </div>
+            <div class="perfumes-grid" id="perfumesMenorGrid">
+                <!-- Cards se renderizan dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Perfumes por Mayor -->
+    <section id="mayor" class="perfumes-section perfumes-mayor">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title-wrapper">
+                    <h2 class="section-title">Perfumes por Mayor</h2>
+                    <button class="collapse-toggle" id="toggleMayor" aria-label="Colapsar sección">
+                        <span class="collapse-icon">−</span>
+                    </button>
+                </div>
+            </div>
+            <div class="perfumes-grid" id="perfumesMayorGrid">
+                <!-- Cards se renderizan dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto WhatsApp -->
+    <section class="whatsapp-section">
+        <div class="container">
+            <div class="whatsapp-content">
+                <p class="whatsapp-message">¿Querés consultar disponibilidad o precios?</p>
+                <button class="btn btn-whatsapp-large">Contactar por WhatsApp</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">KM</span>
+                    <p class="footer-tagline">Perfumes Premium</p>
+                </div>
+                <div class="footer-info">
+                    <p>Elegancia y sofisticación en cada fragancia</p>
+                    <p class="footer-copyright">&copy; 2024 KM. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Volver Arriba -->
+    <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+

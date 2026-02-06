@@ -1,0 +1,926 @@
+/* ============================================
+   KM - Perfumes Premium
+   Estilos Premium y Elegantes
+   ============================================ */
+
+/* Variables CSS - Paleta de Colores Premium */
+:root {
+    /* Colores principales */
+    --azul-francia: #1E3A8A;
+    --azul-francia-light: #3B82F6;
+    --azul-francia-dark: #1E40AF;
+    --negro-profundo: #0A0A0A;
+    --negro-suave: #1A1A1A;
+    --blanco-limpio: #FFFFFF;
+    --blanco-suave: #F8F9FA;
+    
+    /* Degradés */
+    --gradient-azul: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+    --gradient-hero: linear-gradient(135deg, #0A0A0A 0%, #1E3A8A 50%, #0A0A0A 100%);
+    
+    /* Tipografías */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    
+    /* Espaciado */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    
+    /* Sombras premium e-commerce */
+    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.2);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.12);
+    --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.25);
+    --shadow-glow: 0 0 30px rgba(59, 130, 246, 0.4);
+    
+    /* Transiciones */
+    --transition-fast: 0.3s ease;
+    --transition-smooth: 0.5s ease;
+}
+
+/* Reset y Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    color: var(--blanco-limpio);
+    background-color: var(--negro-profundo);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+    transition: var(--transition-fast);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    z-index: 1001;
+}
+
+.logo-text {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    background: var(--gradient-azul);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+    transition: var(--transition-fast);
+}
+
+.logo-text:hover {
+    transform: scale(1.05);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--blanco-limpio);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding: var(--spacing-xs) 0;
+    transition: var(--transition-fast);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-azul);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--azul-francia-light);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Menu Toggle (Mobile) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: var(--blanco-limpio);
+    transition: var(--transition-fast);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.9;
+    z-index: -2;
+}
+
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.hero-decoration {
+    position: absolute;
+    top: 20%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: -1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    background: linear-gradient(135deg, #FFFFFF 0%, #B8D4FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 1px;
+}
+
+.hero-cta {
+    margin-top: var(--spacing-md);
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: var(--gradient-azul);
+    color: var(--blanco-limpio);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow);
+    border-color: var(--azul-francia-light);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--azul-francia-light);
+    border: 2px solid var(--azul-francia-light);
+}
+
+.btn-secondary:hover {
+    background: var(--azul-francia-light);
+    color: var(--blanco-limpio);
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: var(--blanco-limpio);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.5);
+}
+
+/* ============================================
+   PERFUMES SECTIONS
+   ============================================ */
+.perfumes-section {
+    padding: var(--spacing-xl) 0;
+    position: relative;
+}
+
+.perfumes-section:first-of-type {
+    padding-top: var(--spacing-xl);
+}
+
+.perfumes-menor {
+    background: var(--negro-profundo);
+}
+
+.perfumes-mayor {
+    background: var(--negro-suave);
+    position: relative;
+}
+
+.perfumes-mayor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient-azul);
+    opacity: 0.3;
+}
+
+.section-header {
+    margin-bottom: var(--spacing-xl);
+    transition: margin-bottom var(--transition-smooth), padding-bottom var(--transition-smooth);
+}
+
+.section-title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+/* Estado colapsado - Título más compacto */
+.perfumes-section.collapsed .section-header {
+    margin-bottom: 0;
+    padding-bottom: var(--spacing-sm);
+}
+
+/* Estado colapsado - Sección más compacta */
+.perfumes-section.collapsed {
+    padding: var(--spacing-md) 0;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 400;
+    margin: 0;
+    color: var(--blanco-limpio);
+    letter-spacing: 1px;
+}
+
+/* Botón Colapsar/Expandir */
+.collapse-toggle {
+    background: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    color: var(--azul-francia-light);
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1;
+    padding: 0;
+}
+
+.collapse-toggle:hover {
+    color: var(--azul-francia-light);
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.collapse-icon {
+    display: block;
+    transition: var(--transition-fast);
+}
+
+.collapse-toggle.active .collapse-icon {
+    transform: rotate(90deg);
+}
+
+/* Grid E-commerce Premium */
+.perfumes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+    transition: var(--transition-smooth);
+    overflow: hidden;
+}
+
+.perfumes-grid.collapsed {
+    max-height: 0;
+    margin-top: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+/* Grid de Perfumes */
+.perfumes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+/* Card de Perfume - Estilo E-commerce Premium */
+.perfume-card {
+    background: var(--negro-profundo);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all var(--transition-smooth);
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+    box-shadow: 0 4px 20px rgba(30, 58, 138, 0.4), 0 8px 32px rgba(30, 58, 138, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.perfume-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 32px rgba(30, 58, 138, 0.6), 0 16px 48px rgba(30, 58, 138, 0.5);
+}
+
+.perfume-image-container {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: var(--blanco-suave);
+    position: relative;
+}
+
+.perfume-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: block;
+}
+
+.perfume-card:hover .perfume-image {
+    transform: scale(1.08);
+}
+
+.perfume-info {
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.perfume-name {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+    color: var(--blanco-limpio);
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+.perfume-content {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: 0.3px;
+}
+
+.perfume-price-wrapper {
+    padding-top: var(--spacing-xs);
+}
+
+.perfume-price {
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    background: var(--gradient-azul);
+    color: var(--blanco-limpio);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+    letter-spacing: 0.5px;
+    width: 100%;
+    text-align: center;
+    display: block;
+    box-shadow: var(--shadow-soft);
+}
+
+.perfume-price:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+    background: var(--azul-francia-light);
+}
+
+.mayor-text {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.perfume-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-direction: column;
+}
+
+.perfume-card .btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+
+/* ============================================
+   WHATSAPP SECTION
+   ============================================ */
+.whatsapp-section {
+    background: var(--negro-suave);
+    padding: var(--spacing-xl) 0;
+    border-top: 1px solid rgba(59, 130, 246, 0.1);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.whatsapp-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.whatsapp-message {
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    font-weight: 400;
+    color: var(--blanco-limpio);
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+}
+
+.btn-whatsapp-large {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: var(--blanco-limpio);
+    padding: 1.4rem 4rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+    box-shadow: var(--shadow-medium);
+    width: 100%;
+    max-width: 450px;
+}
+
+.btn-whatsapp-large:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+}
+
+/* ============================================
+   BOTÓN VOLVER ARRIBA
+   ============================================ */
+.scroll-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 56px;
+    height: 56px;
+    background: var(--blanco-limpio);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 50%;
+    color: var(--azul-francia);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-smooth);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+    box-shadow: var(--shadow-strong);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    background: var(--azul-francia-light);
+    color: var(--blanco-limpio);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.scroll-top svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    background: var(--negro-profundo);
+    padding: var(--spacing-lg) 0;
+    border-top: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.footer-tagline {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.footer-info {
+    text-align: right;
+}
+
+.footer-info p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 300;
+}
+
+.footer-copyright {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-20px) translateX(20px);
+    }
+}
+
+/* Animación de entrada para cards */
+.perfume-card:nth-child(1) { animation-delay: 0.1s; }
+.perfume-card:nth-child(2) { animation-delay: 0.2s; }
+.perfume-card:nth-child(3) { animation-delay: 0.3s; }
+.perfume-card:nth-child(4) { animation-delay: 0.4s; }
+.perfume-card:nth-child(5) { animation-delay: 0.5s; }
+.perfume-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* ============================================
+   RESPONSIVE - MOBILE FIRST
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .navbar {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: var(--spacing-md);
+        transform: translateX(-100%);
+        transition: var(--transition-smooth);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+    }
+    
+    .navbar.active {
+        transform: translateX(0);
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        align-items: flex-start;
+    }
+    
+    .nav-link {
+        font-size: 1.1rem;
+        padding: var(--spacing-xs) 0;
+    }
+    
+    .perfumes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .perfume-image-container {
+        height: 240px;
+    }
+    
+    .perfume-info {
+        padding: var(--spacing-sm);
+    }
+    
+    .perfume-name {
+        font-size: 1.1rem;
+    }
+    
+    .perfume-price {
+        font-size: 1.4rem;
+        padding: 0.9rem 1.5rem;
+    }
+    
+    .section-title-wrapper {
+        flex-wrap: wrap;
+    }
+    
+    .hero {
+        min-height: 90vh;
+        padding-top: 100px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-info {
+        text-align: center;
+    }
+    
+    .scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .perfumes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+    
+    .perfume-image-container {
+        height: 240px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .section-title-wrapper {
+        flex-wrap: wrap;
+        gap: var(--spacing-xs);
+    }
+    
+    .collapse-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 1.8rem;
+    }
+    
+    .perfume-info {
+        padding: var(--spacing-sm);
+    }
+    
+    .perfume-name {
+        font-size: 1rem;
+    }
+    
+    .perfume-content {
+        font-size: 0.85rem;
+    }
+    
+    .perfume-price {
+        font-size: 1.3rem;
+        padding: 0.8rem 1.2rem;
+    }
+    
+    .scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+    }
+    
+    .scroll-top svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .btn {
+        padding: 0.9rem 2rem;
+        font-size: 0.9rem;
+    }
+    
+    .perfume-price {
+        font-size: 1.4rem;
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .perfumes-section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .scroll-top {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .scroll-top svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .whatsapp-message {
+        font-size: 1.1rem;
+    }
+    
+    .btn-whatsapp-large {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+/* Scroll Animations Premium */
+@media (prefers-reduced-motion: no-preference) {
+    .perfume-card {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .perfume-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .section-header {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    .section-header.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
