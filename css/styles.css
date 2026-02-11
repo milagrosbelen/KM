@@ -429,8 +429,6 @@ body {
     border-radius: 8px;
     overflow: hidden;
     transition: all var(--transition-smooth);
-    animation: fadeInUp 0.6s ease-out;
-    animation-fill-mode: both;
     box-shadow: 0 4px 20px rgba(30, 58, 138, 0.4), 0 8px 32px rgba(30, 58, 138, 0.3);
     display: flex;
     flex-direction: column;
@@ -491,7 +489,7 @@ body {
 }
 
 .perfume-price {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-weight: 600;
     font-family: var(--font-sans);
     background: var(--gradient-azul);
@@ -704,13 +702,6 @@ body {
     }
 }
 
-/* Animación de entrada para cards */
-.perfume-card:nth-child(1) { animation-delay: 0.1s; }
-.perfume-card:nth-child(2) { animation-delay: 0.2s; }
-.perfume-card:nth-child(3) { animation-delay: 0.3s; }
-.perfume-card:nth-child(4) { animation-delay: 0.4s; }
-.perfume-card:nth-child(5) { animation-delay: 0.5s; }
-.perfume-card:nth-child(6) { animation-delay: 0.6s; }
 
 /* ============================================
    RESPONSIVE - MOBILE FIRST
@@ -769,7 +760,7 @@ body {
     }
     
     .perfume-price {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         padding: 0.9rem 1.5rem;
     }
     
@@ -842,7 +833,7 @@ body {
     }
     
     .perfume-price {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         padding: 0.8rem 1.2rem;
     }
     
@@ -868,7 +859,7 @@ body {
     }
     
     .perfume-price {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         padding: 0.8rem 1.5rem;
     }
     
@@ -898,29 +889,68 @@ body {
     }
 }
 
-/* Scroll Animations Premium */
-@media (prefers-reduced-motion: no-preference) {
-    .perfume-card {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    
-    .perfume-card.visible {
+/* ============================================
+   SCROLL ANIMATIONS - ELEGANTE Y PROFESIONAL
+   ============================================ */
+
+/* Animación base para elementos al hacer scroll */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Estado activo cuando el elemento entra en viewport */
+.scroll-animate.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación para títulos de sección - más sutil */
+.section-header.scroll-animate {
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out,
+                transform 0.6s ease-out;
+}
+
+/* Animación para cards de perfumes - efecto cascada */
+.perfume-card.scroll-animate {
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Delay progresivo para cards (efecto cascada elegante) */
+.perfume-card.scroll-animate:nth-child(1) { transition-delay: 0.1s; }
+.perfume-card.scroll-animate:nth-child(2) { transition-delay: 0.15s; }
+.perfume-card.scroll-animate:nth-child(3) { transition-delay: 0.2s; }
+.perfume-card.scroll-animate:nth-child(4) { transition-delay: 0.25s; }
+.perfume-card.scroll-animate:nth-child(5) { transition-delay: 0.3s; }
+.perfume-card.scroll-animate:nth-child(6) { transition-delay: 0.35s; }
+.perfume-card.scroll-animate:nth-child(7) { transition-delay: 0.4s; }
+.perfume-card.scroll-animate:nth-child(8) { transition-delay: 0.45s; }
+.perfume-card.scroll-animate:nth-child(9) { transition-delay: 0.5s; }
+.perfume-card.scroll-animate:nth-child(10) { transition-delay: 0.55s; }
+.perfume-card.scroll-animate:nth-child(11) { transition-delay: 0.6s; }
+.perfume-card.scroll-animate:nth-child(12) { transition-delay: 0.65s; }
+
+/* Cuando está activo, remover el delay para que la animación sea inmediata */
+.perfume-card.scroll-animate.active {
+    transition-delay: 0s;
+}
+
+/* Respetar preferencias de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-animate {
         opacity: 1;
-        transform: translateY(0);
+        transform: none;
+        transition: none;
     }
     
-    .section-header {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    
-    .section-header.visible {
+    .scroll-animate.active {
         opacity: 1;
-        transform: translateY(0);
+        transform: none;
     }
 }
 

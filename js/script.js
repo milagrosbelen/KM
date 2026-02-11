@@ -132,7 +132,7 @@ const perfumesMayor = [
  */
 function crearCardMenor(perfume) {
     return `
-        <div class="perfume-card">
+        <div class="perfume-card scroll-animate">
             <div class="perfume-image-container">
                 <img src="${perfume.imagen}" alt="${perfume.nombre}" class="perfume-image" loading="lazy">
             </div>
@@ -154,7 +154,7 @@ function crearCardMenor(perfume) {
  */
 function crearCardMayor(perfume) {
     return `
-        <div class="perfume-card">
+        <div class="perfume-card scroll-animate">
             <div class="perfume-image-container">
                 <img src="${perfume.imagen}" alt="${perfume.nombre}" class="perfume-image" loading="lazy">
             </div>
@@ -191,40 +191,73 @@ function renderizarPerfumesMayor() {
 }
 
 // ============================================
-// ANIMACIONES AL SCROLL
+// ANIMACIONES AL SCROLL - ELEGANTE Y PROFESIONAL
 // ============================================
 
 /**
- * Observa elementos y los marca como visibles cuando entran en el viewport
+ * Inicializa animaciones suaves al hacer scroll usando Intersection Observer
+ * Aplica efecto "fade up" elegante a elementos cuando entran en viewport
  */
 function initScrollAnimations() {
+    // Verificar si el usuario prefiere movimiento reducido
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+        // Si prefiere movimiento reducido, no aplicar animaciones
+        return;
+    }
+
+    // Configuración del observer - activa cuando el 15% del elemento es visible
     const observerOptions = {
         threshold: 0.15,
-        rootMargin: '0px 0px -80px 0px'
+        rootMargin: '0px 0px -50px 0px'
     };
 
+    // Crear observer que activa animaciones cuando elementos entran en viewport
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // Delay escalonado para animación suave
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, index * 100);
+                // Agregar clase 'active' para activar la animación
+                entry.target.classList.add('active');
+                
+                // Una vez animado, dejar de observar para mejor performance
+                // Esto evita que se repita la animación al scrollear hacia arriba
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observar todas las cards de perfumes
-    const cards = document.querySelectorAll('.perfume-card');
-    cards.forEach(card => {
-        observer.observe(card);
-    });
+    // Función helper para observar elementos
+    const observeElements = () => {
+        // Agregar clase scroll-animate y observar títulos de sección
+        const sectionHeaders = document.querySelectorAll('.section-header:not(.scroll-animate)');
+        sectionHeaders.forEach(header => {
+            header.classList.add('scroll-animate');
+            observer.observe(header);
+        });
 
-    // Observar secciones
-    const sections = document.querySelectorAll('.section-header');
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+        // Observar cards de perfumes (ya tienen la clase scroll-animate desde su creación)
+        const perfumeCards = document.querySelectorAll('.perfume-card.scroll-animate:not(.active)');
+        perfumeCards.forEach(card => {
+            observer.observe(card);
+        });
+
+        // Agregar clase scroll-animate y observar sección WhatsApp
+        const whatsappSection = document.querySelector('.whatsapp-section:not(.scroll-animate)');
+        if (whatsappSection) {
+            whatsappSection.classList.add('scroll-animate');
+            observer.observe(whatsappSection);
+        }
+
+        // Agregar clase scroll-animate y observar footer
+        const footer = document.querySelector('.footer:not(.scroll-animate)');
+        if (footer) {
+            footer.classList.add('scroll-animate');
+            observer.observe(footer);
+        }
+    };
+
+    // Observar elementos inicialmente
+    observeElements();
 }
 
 // ============================================
@@ -439,7 +472,7 @@ function init() {
     // para asegurar que las cards estén renderizadas
     setTimeout(() => {
         initScrollAnimations();
-    }, 100);
+    }, 150);
 }
 
 // Ejecutar cuando el DOM esté listo
